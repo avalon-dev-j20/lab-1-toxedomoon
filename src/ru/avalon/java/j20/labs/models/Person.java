@@ -13,6 +13,9 @@ public class Person {
      */
     private final String surname;
 
+    private int hash;
+
+
     /**
      * Создаёт экземпляр класса на основании имени и даты
      * рождения.
@@ -23,6 +26,7 @@ public class Person {
     public Person(String name, String surname) {
         this.name = name;
         this.surname = surname;
+        hash = (int)(Math.random() * 100);
     }
 
     /**
@@ -42,4 +46,18 @@ public class Person {
     public String getSurname() {
         return surname;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || o.getClass() != getClass())
+            return false;
+        if (o == this)
+            return true;
+
+        Person other = (Person)o;
+        return name.equals(other.getName()) & surname.equals(other.getSurname());
+    }
+
+    @Override
+    public int hashCode() { return name.hashCode() + surname.hashCode(); }
 }
