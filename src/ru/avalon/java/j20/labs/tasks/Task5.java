@@ -3,8 +3,7 @@ package ru.avalon.java.j20.labs.tasks;
 import ru.avalon.java.j20.labs.Task;
 import ru.avalon.java.j20.labs.core.RandomArrayFactory;
 
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Задание №5.
@@ -23,11 +22,32 @@ public class Task5 implements Task {
      */
     @Override
     public void run() {
-        final int[] array = arrayFactory.getInstance(20);
+        final Integer[] array = arrayFactory.getInstance(20);
 
-        List<Integer> list = null;
+        List<Integer> list = new ArrayList<>();
 
-        Set<Integer> set = null;
+        Set<Integer> set = new HashSet<>();
+
+        for (int i = 0; i < array.length ; i++) {
+            list.add(i, array[i]);
+        }
+
+        set.addAll(list);
+
+        // Проверка
+        System.out.print("\nTASK 5.\nArray:\t");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + "\t");
+        }
+        System.out.print("\nList:\t");
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + "\t");
+        }
+        System.out.print("\nSet:\t");
+        Iterator<Integer> iterator = set.iterator();
+        while (iterator.hasNext()) {
+            System.out.print(iterator.next() + "\t");
+        }
 
         /**
          * TODO(Студент): Выполните задание №5

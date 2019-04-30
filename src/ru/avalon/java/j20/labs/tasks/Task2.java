@@ -1,6 +1,7 @@
 package ru.avalon.java.j20.labs.tasks;
 
 import ru.avalon.java.j20.labs.Task;
+import ru.avalon.java.j20.labs.models.Point;
 
 /**
  * Задание №2.
@@ -14,6 +15,17 @@ public class Task2 implements Task {
      */
     @Override
     public void run() {
+
+        Point<Float> floatPoint = new Point<>((float)(Math.random() * 10), (float)(Math.random() * 10));
+        Point<Integer> integerPoint = new Point<>((int)(Math.random() * 10), (int)(Math.random() * 10));
+
+        double distance = floatPoint.distanceTo(integerPoint);
+
+        // Проверка
+        System.out.print("\nTASK 2.\nТочка 1 ( " + floatPoint.getX() + " ; " + floatPoint.getY() + " )\t");
+        System.out.print("\nТочка 2 ( " + integerPoint.getX() + " ; " + integerPoint.getY() + " )\t");
+        System.out.println("\nДистанция между точками: " + distance);
+
         /*
          * TODO(Студент): Выполнять задание №2
          *
@@ -34,5 +46,7 @@ public class Task2 implements Task {
          * 4. С использованием отладчика проверьте корректность
          *    работы программы.
          */
+
+
     }
 }
